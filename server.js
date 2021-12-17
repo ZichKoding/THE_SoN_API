@@ -17,4 +17,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/the-son-a
 // Use this to log mongo queries being executed!
 mongoose.set('debug', true);
 
+// mongoose.connection.dropDatabase();
+
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));

@@ -21,6 +21,7 @@ const thoughtController = {
     },
     // create a Thought
     createThought({ body }, res) {
+        // validate the user before creating the thought.
         User.findOne({ username: body.username})
         .then(dbUserData => {
             if (!dbUserData._id) {
@@ -45,14 +46,14 @@ const thoughtController = {
     },
     // update a thought
     updateThought({ params, body }, res) {
+        // validate the username before processing the updated thought
         User.findOne({ username: body.username})
         .then(dbUserData => {
             if (!dbUserData._id) {
                 res.status(404).json({ message: "No user found with that username" });
                 return;
             }
-            res.json(dbUserData.username);
-
+            
             Thought.findOneAndUpdate(
                 { _id: params.id },
                 body,
@@ -75,9 +76,12 @@ const thoughtController = {
                         res.status(404).json({ message: "No thought found with this id" });
                         return;
                     }
-                    res.json(dbThoughtData);
+                    return res.json(dbThoughtData);
                 })
                 .catch(err => res.status(400).json(err));
+
+
+            res.json(dbUserData.thoughts);
         })
         .catch(err => res.status(400).json(err));
     },
