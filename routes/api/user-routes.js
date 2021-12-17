@@ -10,7 +10,7 @@ router
 
 // Setting up routes or by :id updating and deleting users.
 router
-    .route('/:id')
+    .route('/:username')
     .get(getOneUser)
     .put(updateUser)
     .delete(deleteUser);

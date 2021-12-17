@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const { validate } = require('./User');
 
 const ThoughtSchema = new Schema({
         thoughtText: {
@@ -14,7 +15,7 @@ const ThoughtSchema = new Schema({
             // enter a method here to format the data or on query
         },
         username: {
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.String,
             ref: 'User'
         },
         reactions: []
