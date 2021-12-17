@@ -28,19 +28,17 @@ const thoughtController = {
                 res.status(404).json({ message: "No user found with that username" });
                 return;
             }
-            res.json(dbUserData.username);
+            return Thought.create(body)
+                    .then(({ username, _id }) => {
+                        return User.findOneAndUpdate(
+                            { username: username },
+                            { $push: { thoughts: _id }},
+                            { new: true, runValidators: true },
+                        )
 
-            Thought.create(body)
-            .then(({ username, _id }) => {
-                return User.findOneAndUpdate(
-                    { username: username },
-                    { $push: { thoughts: _id }},
-                    { new: true, runValidators: true },
-                )
-
-            })
-            .then(dbThoughtData => res.json(dbThoughtData))
-            .catch(err => res.json(err));
+                    })
+                    .then(dbThoughtData => res.json(dbThoughtData))
+                    .catch(err => res.json(err));
         })
         .catch(err => res.status(400).json(err));
     },
