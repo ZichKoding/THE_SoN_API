@@ -18,6 +18,8 @@ router
     .route('/:id')
     .get(getOneThought)
     .put(updateThought)
-    .delete(deleteThought);
+
+// delete thought with route /<username>/:id
+router.route('/:username/:id').delete(deleteThought);
 
 module.exports = router;
