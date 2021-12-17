@@ -37,7 +37,13 @@ const UserSchema = new Schema({
         userCreated: {
             type: Date,
             default: Date.now
-        }
+        },
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
+        ]
     },
     {
         toJSON: {
@@ -48,7 +54,15 @@ const UserSchema = new Schema({
     }
 );
 
+// adding plugin and package for encrypting passwords
 UserSchema.plugin(require('mongoose-bcrypt'));
+
+// Setup virtual for connecting Thoughts to Users
+UserSchema.virtual('Thought', {
+    ref: 'Thought',
+    localField: 'username',
+    foreignField: '_id'
+});
 
 const User = model('User', UserSchema);
 
