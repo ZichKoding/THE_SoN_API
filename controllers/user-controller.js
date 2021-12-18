@@ -50,6 +50,23 @@ const userController = {
                 }
             })
             .catch(err => res.status(400).json(err));
+    },
+
+    // add user to friend list
+    addFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { username: params.username },
+            { $push: { friends: params.friendId }},
+            { new: true, runValidators: true }
+        )
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: "No user found with this username or id"});
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => res.status(400).json(err));
     }
 };
 
