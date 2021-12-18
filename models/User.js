@@ -64,10 +64,12 @@ const UserSchema = new Schema({
 UserSchema.plugin(require('mongoose-bcrypt'));
 
 // Setup virtual for connecting Thoughts to Users
-UserSchema.virtual('Thought', {
-    ref: 'Thought',
-    localField: 'username',
-    foreignField: '_id'
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+});
+
+UserSchema.virtual('thoughtCount').get(function() {
+    return this.thoughts.length;
 });
 
 const User = model('User', UserSchema);
