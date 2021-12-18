@@ -1,6 +1,24 @@
 const { Schema, model } = require('mongoose');
-const { validate } = require('./User');
 
+// Collection Schema for Replies
+const ReactionSchema = new Schema({
+    reactionId: {},
+    reactionBody: {
+        type: String,
+        required: 'Must enter some text.',
+        maxlength: 280
+    },
+    username: {
+        type: Schema.Types.String,
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+// Collection Schema for Thoughts
 const ThoughtSchema = new Schema({
         thoughtText: {
             type: String,
