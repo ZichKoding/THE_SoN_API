@@ -1,11 +1,13 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 // Collection Schema for Replies
 const ReactionSchema = new Schema({
-    reactionId: {},
+    reactionId: {
+        type: Types.ObjectId
+    },
     reactionBody: {
         type: String,
-        required: 'Must enter some text.',
+        required: true,
         maxlength: 280
     },
     username: {
@@ -36,7 +38,7 @@ const ThoughtSchema = new Schema({
             type: Schema.Types.String,
             ref: 'User'
         },
-        reactions: []
+        reactions: [ReactionSchema]
     },
     {
         toJSON: {
@@ -46,6 +48,11 @@ const ThoughtSchema = new Schema({
         id: false
     }
 );
+
+// get a count of reactions to a thought
+ThoughtSchema.virtual("reactionCount").get(function() {
+    return this.reactions.length;
+})
 
 const Thought = model('Thought', ThoughtSchema);
 
