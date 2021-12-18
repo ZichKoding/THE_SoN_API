@@ -26,7 +26,10 @@ const userController = {
     createUser({ body }, res) {
         User.create(body)
             .then(dbUserData => res.json(dbUserData))
-            .catch(err => res.status(400).json(err));
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err)
+            });
     },
     // update a user
     updateUser({ params, body }, res) {
@@ -57,6 +60,22 @@ const userController = {
         User.findOneAndUpdate(
             { username: params.username },
             { $push: { friends: params.friendId }},
+            { new: true, runValidators: true }
+        )
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: "No user found with this username or id"});
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => res.status(400).json(err));
+    },
+    // delete a user from friend list
+    deleteFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { username: params.username },
+            { $pull: { friends: params.friendId }},
             { new: true, runValidators: true }
         )
             .then(dbUserData => {
