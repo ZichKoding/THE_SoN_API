@@ -18,7 +18,7 @@ THE_SoN_API stands for The Social Network API. With this API you are able to cre
 * [How to update a thought](#How-to-update-a-thought)
 * [How to delete a thought](#How-to-delete-a-thought)
 * [How to GET all thoughts or one thought](#How-to-GET-all-thoughts-or-one-thought)
-* [How to add & remove a reaction](#How-to-add-&-remove-a-reaction)
+* [How to add and remove a reaction](#How-to-add-and-remove-a-reaction)
 
 #
 
@@ -69,7 +69,7 @@ To get all thoughts the url is `/api/thoughts`. This will return all thoughts wi
 
 To get a single thought the url is `/api/thoughts/:id` where `:id` is the thought's id you are wanting to see. This will return one thought with the user that owns the thought and a reaction list, which stores the reaction's id, text, and reaction's owner to a thought.
 #
-### **How to add & remove a reaction**
+### **How to add and remove a reaction**
 To create a reaction the url is `/api/thoughts/:thoughtId/reactions` where `:thoughtId` is the thought id the reaction will be related to. The reaction's body must consist of the following:
 ```
 reactionBody
