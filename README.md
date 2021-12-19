@@ -9,16 +9,16 @@ THE_SoN_API stands for The Social Network API. With this API you are able to cre
 
 ## Table of Contents
 
-* [How to create a user](#)
-* [How to update a user](#)
-* [How to delete a user](#)
-* [How to GET all users or one](#)
-* [How to add & remove a friend from friend list](#)
-* [How to create a thought](#)
-* [How to update a thought](#)
-* [How to delete a thought](#)
-* [How to GET all thoughts or one thought](#)
-* [How to add & remove a reaction](#)
+* [How to create a user](#How-to-create-a-user)
+* [How to update a user](#How-to-update-a-user)
+* [How to delete a user](#How-to-delete-a-user)
+* [How to GET all users or one](#How-to-GET-all-users-or-one)
+* [How to add & remove a friend from friend list](#How-to-add-&-remove-a-friend-from-friend-list)
+* [How to create a thought](#How-to-create-a-thought)
+* [How to update a thought](#How-to-update-a-thought)
+* [How to delete a thought](#How-to-delete-a-thought)
+* [How to GET all thoughts or one thought](#How-to-GET-all-thoughts-or-one-thought)
+* [How to add & remove a reaction](#How-to-add-&-remove-a-reaction)
 
 #
 
