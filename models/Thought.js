@@ -37,7 +37,8 @@ const ThoughtSchema = new Schema({
         },
         username: {
             type: Schema.Types.String,
-            ref: 'User'
+            ref: 'User',
+            required: "Don't be afraid, own your thoughts!"
         },
         reactions: [ReactionSchema]
     },
