@@ -13,7 +13,7 @@ THE_SoN_API stands for The Social Network API. With this API you are able to cre
 * [How to update a user](#How-to-update-a-user)
 * [How to delete a user](#How-to-delete-a-user)
 * [How to GET all users or one](#How-to-GET-all-users-or-one)
-* [How to add & remove a friend from friend list](#How-to-add-&-remove-a-friend-from-friend-list)
+* [How to add and remove a friend from friend list](#How-to-add-and-remove-a-friend-from-friend-list)
 * [How to create a thought](#How-to-create-a-thought)
 * [How to update a thought](#How-to-update-a-thought)
 * [How to delete a thought](#How-to-delete-a-thought)
@@ -47,7 +47,7 @@ To get all Users from the database along with their friend list (this list consi
 
 To get one User from the database along with their friend list (this list consists of the ids of the users) and thoughts the route is `/api/users/:username`. 
 #
-### **How to add & remove a friend from friend list**
+### **How to add and remove a friend from friend list**
 For adding and removing a friend from a user's friend list it is the same route, `/api/users/:username/friends/:friendId`, where `:username` is the user's name that wants to add a user to the friend list, and `:friendId` is the user's **_id_** that will be stored into the friend list.
 #
 ### **How to create a thought**
