@@ -1,6 +1,6 @@
 # THE_SoN_API
 
-[Click here for a walkthrough video!](https://youtu.be/mss8h-YdLt0)
+[Click here for a walkthrough video!](https://www.youtube.com/watch?v=mss8h-YdLt0&t=1s&ab_channel=ZichKoding)
 
 ## Description
 
